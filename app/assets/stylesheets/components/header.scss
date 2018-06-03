@@ -1,0 +1,13 @@
+.header {
+  background-color: $brand-color;
+  a {
+    h1 {
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    color: $white;
+    text-decoration: none;
+  }
+}

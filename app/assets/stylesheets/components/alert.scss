@@ -1,0 +1,17 @@
+.alert {
+  margin: 0;
+  text-align: center;
+  color: white !important;
+}
+.alert-notice {
+  background: $blue;
+}
+.alert-alert {
+  background: $orange;
+}
+.alert-error {
+  background: $red;
+}
+.alert-success {
+  background: $green;
+}

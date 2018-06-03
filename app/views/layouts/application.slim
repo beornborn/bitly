@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title URL shortener
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body class="#{controller_name} #{action_name}"
+    = render 'layouts/header'
+    = render 'layouts/notifications'
+    .col-md-10.col-md-offset-1
+      .wrap
+        = yield

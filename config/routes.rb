@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root to: 'urls#index'
+
+  resources :urls, only: :create
 end
