@@ -11,6 +11,6 @@ class CreateUrl
     url.save!
     context.url = url
   rescue StandardError => e
-    context.fail!(error: e)
+    context.fail!(error: e, url: url)
   end
 end

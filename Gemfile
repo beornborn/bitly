@@ -16,7 +16,7 @@ gem 'interactor', '~> 3.0'
 
 gem 'slim'
 gem 'simple_form'
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'jquery-rails'
 
 # Use ActiveStorage variant

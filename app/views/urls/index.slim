@@ -1,6 +1,22 @@
-.col-md-6.col-md-offset-3
-  .main-card
-    h2.text-center Shrink your links!
-    = simple_form_for @url, html: { class: 'text-center' } do |f|
-      = f.input :original_url, as: :string, placeholder: 'Enter the URL you want to shorten...', label: false
-      = f.submit 'Shorten!', class: 'btn btn-success'
+row.justify-content-center.align-items-center
+  .col-md-4.offset-md-4
+    .new-url-container
+      h2.text-center Shrink your links!
+      = simple_form_for @url, html: { class: 'text-center' } do |f|
+        = f.input :original_url, as: :string, placeholder: 'Enter the URL you want to shorten...', label: false
+        = f.submit 'Shorten!', class: 'btn btn-success'
+
+.row
+  .col
+    .all-urls-container
+      .url.header-line
+        .original-url-column Original URL
+        .short-url-column Short URL
+        .clicks-column Clicks
+
+      - @all_urls.each do |url|
+        .url
+          .original-url-column = link_to url.original_url, url_path(url)
+          .short-url-column = link_to "#{request.base_url}/#{url.short_url}", "#{request.base_url}/#{url.short_url}", { target: 'blank' }
+          .clicks-column 0
+

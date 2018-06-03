@@ -1,21 +1,32 @@
-html, body {
-  height: 100%;
-}
-body {
-  margin:0px;
-  padding: 0px;
-}
-.wrap {
-  height: auto;
-  margin: 0 auto -6em;
-  min-height: 100%;
-  padding: 0 0 6em;
-  box-sizing: border-box;
-  overflow: auto;
+.new-url-container {
+  margin-top: 30px;
 }
 
-.main-card {
-  h2,h4 {
-    margin-bottom: 1em;
+.all-urls-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.header-line {
+  font-weight: bold;
+}
+
+.url {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+  .original-url-column {
+    width: 600px;
+    margin: 10px;
+  }
+  .short-url-column {
+    width: 400px;
+    margin: 10px;
+  }
+  .clicks-column {
+    width: 100px;
+    margin: 10px;
   }
 }
