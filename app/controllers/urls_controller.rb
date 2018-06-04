@@ -1,12 +1,18 @@
 class UrlsController < ApplicationController
   before_action :find_url, only: [:show, :redirect]
+  before_action :set_all_urls, only: [:index, :create]
 
   def index
     @url = Url.new
-    @all_urls = Url.order(id: :desc).all.to_a
   end
 
   def redirect
+    CreateClick.call(
+      url: @url,
+      user_agent: request.user_agent,
+      ip: request.remote_ip
+    )
+
     redirect_to @url.original_url
   end
 
@@ -19,16 +25,18 @@ class UrlsController < ApplicationController
     if result.success?
       @url = Url.new
     else
-      flash[:error] = "Check the error below:"
+      flash[:error] = 'Check the error below:'
       @url = result.url
     end
-
-    @all_urls = Url.order(id: :desc).all.to_a
 
     render 'index'
   end
 
   private
+
+  def set_all_urls
+    @all_urls = Url.includes(:clicks).order(id: :desc).all.to_a
+  end
 
   def find_url
     @url = Url.find_by_short_url(params[:short_url])

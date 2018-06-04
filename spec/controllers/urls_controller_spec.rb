@@ -28,6 +28,7 @@ describe UrlsController do
     let!(:url) { create :url, short_url: '111111', original_url: original_url }
 
     it 'redirects to the original url' do
+      expect(CreateClick).to receive(:call)
       get :redirect, params: { short_url: url.short_url }
       expect(response).to redirect_to(url.original_url)
     end
