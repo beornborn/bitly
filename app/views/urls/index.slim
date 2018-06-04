@@ -16,7 +16,7 @@ row.justify-content-center.align-items-center
 
       - @all_urls.each do |url|
         .url
-          .original-url-column = link_to url.original_url, url.original_url
+          .original-url-column = link_to url.original_url, statistics_url_path(url)
           .short-url-column = link_to "#{request.base_url}/#{url.short_url}", "#{request.base_url}/#{url.short_url}", { target: 'blank' }
           .clicks-column = url.clicks.size
 

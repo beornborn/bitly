@@ -18,6 +18,7 @@ gem 'slim'
 gem 'simple_form'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'browser'
 gem 'geoip'
