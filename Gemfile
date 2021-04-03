@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.7.2'
 
 gem 'rails', '~> 5.2.0'
 gem 'pg'
@@ -13,6 +13,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'interactor', '~> 3.0'
+gem 'mimemagic', '~> 0.3.6'
 
 gem 'slim'
 gem 'simple_form'
