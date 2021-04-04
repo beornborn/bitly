@@ -1,10 +1,23 @@
 class UrlsController < ApplicationController
-  before_action :find_url_by_short_url, only: :redirect
-  before_action :find_url_by_id, only: :statistics
-  before_action :set_all_urls, only: [:index, :create]
+  before_action :find_url_by_short_url, only: [:redirect, :stat, :short]
 
   def index
     @url = Url.new
+  end
+
+  def short
+  end
+
+  def stat
+    respond_to do |format|
+      format.csv do
+        csv_string = ClicksToCsv.call(url: @url).csv_string
+        send_data csv_string,
+          type: 'text/csv; charset=utf-8',
+          disposition: "attachment; filename=clicks_for_#{@url.short_url}.csv"
+      end
+      format.html
+    end
   end
 
   def redirect
@@ -17,35 +30,24 @@ class UrlsController < ApplicationController
     redirect_to @url.original_url
   end
 
-  def statistics
-    render json: @url
-  end
-
   def create
     result = CreateUrl.call(original_url: url_params[:original_url])
 
     if result.success?
-      @url = Url.new
-    else
-      flash[:error] = 'Check the error below:'
-      @url = result.url
+      redirect_to action: :short, short_url: result.url.short_url
+      return
     end
+
+    flash[:error] = 'Check the error below:'
+    @url = result.url
 
     render 'index'
   end
 
   private
 
-  def set_all_urls
-    @all_urls = Url.includes(:clicks).order(id: :desc).all.to_a
-  end
-
   def find_url_by_short_url
     @url = Url.find_by_short_url(params[:short_url])
-  end
-
-  def find_url_by_id
-    @url = Url.find(params[:id])
   end
 
   def url_params

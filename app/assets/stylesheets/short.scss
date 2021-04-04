@@ -1,0 +1,32 @@
+.col.short {
+  display: flex;
+  justify-content: center;
+}
+.short-container {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  .sc-header {
+    font-size: 35px;
+  }
+  .sc-short-link {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .sc-description {
+    margin-top: 6px;
+    font-size: 15px;
+    &.link_to_shortened {
+      margin-top: 0px;
+    }
+  }
+  .sc-paper {
+    background: $white;
+    padding: 18px;
+    margin-top: 24px;
+    border-radius: 6px;
+  }
+}

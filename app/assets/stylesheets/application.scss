@@ -1,8 +1,10 @@
-@import "variables";
+@import 'variables';
 
-@import "bootstrap";
+@import 'bootstrap';
 
-@import "shared";
-@import "new_url";
-@import "components/alert";
-@import "components/header";
+@import 'shared';
+@import 'new_url';
+@import 'stat';
+@import 'short';
+@import 'components/alert';
+@import 'components/header';

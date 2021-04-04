@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'urls#index'
-  get "/:short_url", to: "urls#redirect"
-  get '/urls', to: redirect('/')
 
-  resources :urls, only: [:create, :show] do
-    get :statistics, on: :member
-  end
+  resources :urls, only: [:index, :create]
+
+  get '/stat/:short_url', to: 'urls#stat'
+  get '/short/:short_url', to: 'urls#short'
+  get '/:short_url', to: 'urls#redirect'
 end

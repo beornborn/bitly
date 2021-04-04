@@ -1,0 +1,20 @@
+.row
+  .col.short
+    .short-container
+      .sc-header Your shortened URL
+      .sc-description Copy the shortened link and share it in messages, texts, posts, websites and other locations.
+      .sc-paper
+        - full_visible_short_url = "#{request.host_with_port}/#{@url.short_url}"
+        - full_short_url = "#{root_url}/#{@url.short_url}"
+        .sc-short-link = link_to full_visible_short_url, full_short_url
+        .sc-description
+          | Long URL:&nbsp;
+          = link_to @url.original_url, @url.original_url
+        br
+        .sc-description
+          | Track&nbsp;
+          = link_to 'the total of clicks', "#{root_path}stat/#{@url.short_url}"
+          |  in real-time from your shortened URL.
+        .sc-description.link_to_shortened
+          | Create other &nbsp;
+          = link_to 'shortened URL.', root_path

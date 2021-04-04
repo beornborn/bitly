@@ -1,0 +1,22 @@
+.row
+  .col
+    .total-clicks
+      = 'Total Clicks: '
+      span.amount
+        = @url.clicks.size
+    - if @url.clicks.present?
+      .clicks-container
+        = link_to 'To CSV', "#{root_path}stat/#{@url.short_url}.csv", class: 'to-csv'
+        .clicks.header-line
+          .index-column
+          .country-column Country
+          .browser-column Browser
+          .platform-column Platform
+          .date-column Date
+        - @url.clicks.each.with_index do |click, idx|
+          .click
+            .index-column = idx + 1
+            .country-column = click.country
+            .browser-column = click.browser
+            .platform-column = click.platform
+            .date-column = click.created_at.to_formatted_s(:short)

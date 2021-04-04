@@ -1,0 +1,58 @@
+.clicks-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  .to-csv {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+}
+
+.total-clicks {
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  .amount {
+    font-size: 80px;
+    margin-left: 30px;
+    background: blue;
+    line-height: 80px;
+    width: 60px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 7px;
+  }
+}
+
+.clicks.header-line {
+  font-weight: bold;
+}
+
+.click, .clicks.header-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 10px;
+  .index-column {
+    width: 50px
+  }
+  .country-column {
+    width: 200px
+  }
+  .browser-column {
+    width: 200px
+  }
+  .platform-column {
+    width: 200px
+  }
+  .date-column {
+    width: 200px
+  }
+}

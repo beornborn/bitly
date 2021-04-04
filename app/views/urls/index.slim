@@ -6,17 +6,3 @@ row.justify-content-center.align-items-center
         = f.input :original_url, as: :string, placeholder: 'Enter the URL you want to shorten...', label: false
         = f.submit 'Shorten!', class: 'btn btn-success'
 
-.row
-  .col
-    .all-urls-container
-      .url.header-line
-        .original-url-column Original URL
-        .short-url-column Short URL
-        .clicks-column Clicks
-
-      - @all_urls.each do |url|
-        .url
-          .original-url-column = link_to url.original_url, statistics_url_path(url)
-          .short-url-column = link_to "#{request.base_url}/#{url.short_url}", "#{request.base_url}/#{url.short_url}", { target: 'blank' }
-          .clicks-column = url.clicks.size
-
