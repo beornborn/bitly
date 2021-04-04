@@ -16,7 +16,7 @@ describe CreateClick do
       expect(click.url_id).to eq url.id
       expect(click.country).to eq 'United States'
       expect(click.browser).to eq 'Chrome'
-      expect(click.platform).to eq 'Macintosh'
+      expect(click.platform).to eq 'macOS'
     end
   end
 end
